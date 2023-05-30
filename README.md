@@ -71,30 +71,51 @@ data.isnull().sum()
 sns.scatterplot(x=data['Country'],y=data['Category'],data=data)
 
 states=data.loc[:,["Region","Sales"]] 
+
 states=states.groupby(by=["Region"]).sum().sort_values(by="Sales") 
+
 plt.figure(figsize=(17,7)) 
+
 sns.barplot(x=states.index,y="Sales",data=states) 
+
 plt.xticks(rotation = 90) 
+
 plt.xlabel=("REGION")
+
 plt.ylabel=("SALES") 
+
 plt.show()
 
 states=data.loc[:,["State","Sales"]] 
+
 states=states.groupby(by=["State"]).sum().sort_values(by="Sales") 
+
 plt.figure(figsize=(17,7)) 
+
 sns.barplot(x=states.index,y="Sales",data=states) 
+
 plt.xticks(rotation = 90) 
+
 plt.xlabel=("SALES") 
+
 plt.ylabel=("STATES") 
+
 plt.show()
 
 states=data.loc[:,["Category","Sales"]] 
+
 states=states.groupby(by=["Category"]).sum().sort_values(by="Sales") 
+
 plt.figure(figsize=(10,7)) 
+
 sns.barplot(x=states.index,y="Sales",data=states) 
+
 plt.xticks(rotation = 90) 
+
 plt.xlabel=("CATEGORY") 
+
 plt.ylabel=("SALES") 
+
 plt.show()
 
 data.corr()
